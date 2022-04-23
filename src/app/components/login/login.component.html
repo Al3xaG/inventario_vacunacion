@@ -1,0 +1,21 @@
+<mat-card class="box">
+  <mat-card-header>
+    <mat-card-title>Ingreso al sistema</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="loginForm" [formGroup]="form" (ngSubmit)="login()">
+      <mat-form-field>
+        <input matInput placeholder="usuario" formControlName="user" name="user" id="user">
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="contraseña" type="password" formControlName="password" name="paswword" id="password">
+        <mat-icon matSuffix>password</mat-icon>
+      </mat-form-field>
+      <br>
+      <br>
+      <button class="button" type="submit" mat-raised-button color="primary">Ingresar</button>
+    </form>
+  </mat-card-content>
+    
+</mat-card>

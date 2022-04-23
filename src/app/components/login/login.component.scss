@@ -1,0 +1,14 @@
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+.loginForm mat-form-field{
+    padding: 5px;
+    width: 75%;
+    align-items: center;
+}

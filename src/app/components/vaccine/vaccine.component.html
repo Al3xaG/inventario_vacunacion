@@ -1,0 +1,98 @@
+<div class="employee">
+<div class="employeeInformation">
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Registro de vacuna</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="vaccineForm" [formGroup]="form" (ngSubmit)="registerVaccine()">
+        <mat-form-field>
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="picker2">
+            <mat-datepicker-toggle matSuffix [for]="picker2">
+                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Dirección" formControlName="address" name="address" id="address">
+          <mat-icon matSuffix>location</mat-icon>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Teléfono móvil" formControlName="phone" name="phone" id="phone">
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Fecha de vacunacion</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker">
+              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+        
+        <mat-radio-group class="vaccineType" (change)="selectVaccine($event.value)">
+            <mat-radio-button [checked]="isVaccined" value="vaccine">Vacunado</mat-radio-button>
+            <mat-radio-button [checked]="isNotVaccined" value="notvaccine">No vacunado</mat-radio-button>          
+        </mat-radio-group>
+        <br>
+        <div class="vaccineType">
+            <mat-select [(value)]="selectedVaccine" [disabled]="disableSelect" (selectionChange)="selectVaccineType($event.value)" matNativeControl placeholder="Tipo de vacuna">
+                <mat-option value="Sputnik">Sputnik</mat-option>
+                <mat-option value="AstraZeneca">AstraZeneca</mat-option>
+                <mat-option value="Pfizer">Pfizer</mat-option>
+                <mat-option value="Jhonson&Jhonson">Jhonson&Jhonson</mat-option>
+            </mat-select>
+            <mat-select [(value)]="selectedDoses" [disabled]="disableSelect" (selectionChange)="selectVaccineDoses($event.value)" matNativeControl placeholder="Número de dosis">
+              <mat-option value="0">0</mat-option>
+                <mat-option value="1">1</mat-option>
+                <mat-option value="2">2</mat-option>
+                <mat-option value="3">3</mat-option>
+            </mat-select>
+        </div>
+        <br>
+        <button class="button" type="submit" mat-raised-button color="primary">Guardar</button>
+      </form>
+    </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-card-header>
+        <mat-icon>person</mat-icon>
+        <mat-card-title>Informacion del usuario</mat-card-title>
+   
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+          <div class="data">
+            <label id="title" for="">Nombre del empleado</label>
+            <label id="subTitle"  for="">{{fullName}}</label>
+          </div>
+          <div class="data">
+            <label id="title" for="">Número de cédula</label>
+            <label id="subTitle" for="">{{identityNumber}}</label>
+          </div>
+          <div class="data">
+            <label id="title" for="">Correo electrónico</label>
+            <label id="subTitle" for="">{{email}}</label>
+          </div>
+          <div class="data">
+            <label id="title" for="">Fecha de nacimiento</label>
+            <label id="subTitle" for="">{{birthday}}</label>
+          </div>
+            <div class="data">
+                <label id="title" for="">Estado de vacunación</label>
+                <label id="subTitle" for="">{{isVaccined ? 'Vacunado' : 'No vacunado'}}</label>
+            <div class="data">
+                <label id="title" for="">Tipo de vacuna</label>
+                <label id="subTitle" for="">{{selectedVaccine}}</label>
+            </div>
+            <div class="data">
+                <label id="title" for="">Dosis N°</label>
+                <label id="subTitle" for="">{{selectedDoses}}</label>
+            </div>
+          </div>
+          
+      </mat-card-content>
+</mat-card>
+</div>
+</div>

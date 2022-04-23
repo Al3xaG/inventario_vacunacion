@@ -1,0 +1,58 @@
+.employee {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+.vaccineForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+    padding-top: 1rem;
+}
+
+.vaccineForm mat-form-field{
+    padding: 5px;
+    width: 75%;
+    align-items: center;
+}
+
+.vaccineType {
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.vaccineType mat-select{
+    padding: 10px;
+}
+
+.employeeInformation {
+    display: flex;
+    flex-direction: row;
+    margin-top: auto;
+}
+
+.employeeInformation mat-card{
+    width: 100%;
+    margin: 0 auto;
+    //height: 100%;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;  
+}
+
+#title {
+    font-weight: 600;
+}
+
+#subTitle {
+    padding-left: 25px;
+}

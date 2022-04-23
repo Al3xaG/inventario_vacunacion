@@ -1,0 +1,30 @@
+
+<mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>EDITAR EMPLEADO</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="registerForm" [formGroup]="form" (ngSubmit)="save()">
+      <mat-form-field>
+        <input matInput placeholder="Nombres*" formControlName="name" name="name" id="name">
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Apellidos*" formControlName="lastname" name="lastname" id="lastname">
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Cédula*" formControlName="identityNumber" name="identityNumber" id="identityNumber">
+        <mat-icon matSuffix>verified_user</mat-icon>
+      </mat-form-field>
+   
+      <mat-form-field>
+        <input matInput placeholder="Correo electrónico*" formControlName="email" name="email" id="email">
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+      <button class="button" type="submit" mat-raised-button color="primary">Guardar</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+

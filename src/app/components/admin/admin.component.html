@@ -1,0 +1,84 @@
+  <div class="searchFilters">
+
+    <mat-form-field>
+      <mat-select matNativeControl (selectionChange)="selectIsVaccinated($event.value)" placeholder="Estado de vacunación">
+          <mat-option value="true">Vacunado</mat-option>
+          <mat-option value="false">No Vacunado</mat-option>
+          <mat-option value="noFilter">Sin filtro</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select matNativeControl (selectionChange)="selectVaccine($event.value)" placeholder="Tipo de vacuna">
+            <mat-option value="Sputnik">Sputnik</mat-option>
+            <mat-option value="AstraZeneca">AstraZeneca</mat-option>
+            <mat-option value="Pfizer">Pfizer</mat-option>
+            <mat-option value="Jhonson&Jhonson">Jhonson&Jhonson</mat-option>
+            <mat-option value="noFilter">Sin filtro</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button (click)="addEmployee()" mat-icon-button class="buttom" matTooltip="Añadir un empleado">
+      <mat-icon>add</mat-icon>
+    </button>
+
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nombres </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="lastname">
+      <th mat-header-cell *matHeaderCellDef> Apellidos </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="identityNumber">
+      <th mat-header-cell *matHeaderCellDef> Cédula </th>
+      <td mat-cell *matCellDef="let element"> {{element.identityNumber}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Correo electrónico </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="isVaccinated">
+      <th mat-header-cell *matHeaderCellDef> Estado de vacunación </th>
+      <td mat-cell *matCellDef="let element"> {{element.isVaccinated ? "Vacunado" : "No vacunado" }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="vaccineType">
+      <th mat-header-cell *matHeaderCellDef> Tipo de Vacuna </th>
+      <td mat-cell *matCellDef="let element"> {{element.vaccine.vaccineType }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dosesNumber">
+      <th mat-header-cell *matHeaderCellDef> Dosis </th>
+      <td mat-cell *matCellDef="let element"> {{element.vaccine.dosesNumber }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateVaccine">
+      <th mat-header-cell *matHeaderCellDef> Fecha de vacunación </th>
+      <td mat-cell *matCellDef="let element"> {{ element.vaccine.date }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tools">
+      <th mat-header-cell *matHeaderCellDef> Herramientas </th>
+      <td mat-cell *matCellDef="let element">
+        <button (click)="editEmployee(element)" mat-icon-button class="buttom" matTooltip="Editar empleado">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="deleteEmployee(element)" mat-icon-button class="buttom" matTooltip="Eliminar empleado">
+          <mat-icon>delete</mat-icon>
+        </button>
+        
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  
